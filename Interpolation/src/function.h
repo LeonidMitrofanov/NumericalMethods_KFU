@@ -17,7 +17,7 @@ class IFunction {
     virtual auto calculate(T x) -> T const = 0;
 
     // Получение значений функции в узлах
-    auto calculateByNodes(const vector<T> &x_nodes) -> vector<T> const;
+    auto calculateByNodes(const vector<T> &x_nodes) -> vector<T> const; // DEBUG: Сделать метод перегрузкой calculate
 
     // Преобразование промежутка в узлы
     static auto getNodesInRange(const T startOfRange, const T endOfRange, const ushort countOfPoints)
@@ -57,7 +57,7 @@ auto IFunction<T>::calculateByNodes(const vector<T> &x_nodes) -> vector<T> const
 
 // Преобразование промежутка в узлы
 template <Numeric T>
-auto IFunction<T>::getNodesInRange(const T startOfRange, const T endOfRange, const ushort countOfPoints)
+auto IFunction<T>::getNodesInRange(const T startOfRange, const T endOfRange, const ushort countOfPoints) // DEBUG: Сделать метод перегрузкой calculate
     -> vector<T> {
     ushort countOfIntervals = countOfPoints - 1;
     vector<T> nodes(countOfPoints);
@@ -73,8 +73,7 @@ auto IFunction<T>::getNodesInRange(const T startOfRange, const T endOfRange, con
     return getNodesInRange(startOfRange, endOfRange, countOfPoints);
 }
 
-// Преобразование промежутка в узлы Чебышева // FIXME: 1)Узлы в обратном порядке; 2)Не включает концы
-// промежутка
+// Преобразование промежутка в узлы Чебышева // FIXME: 1)Узлы в обратном порядке; 2)Не включает концы промежутка
 template <Numeric T>
 auto IFunction<T>::getChebyshevNodes(const T startOfRange, const T endOfRange, const ushort countOfPoints)
     -> vector<T> {
