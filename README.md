@@ -1,5 +1,5 @@
 # NumericalMethods_KFU
-Numerical Methods by KFU university
+Numerical Methods by Kazan Federal Uniersity
 
 ## Requirements
 To run this project, you'll need the following:
